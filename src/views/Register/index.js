@@ -50,7 +50,7 @@ function Register(props) {
               rules: [
                 {
                   type: "email",
-                  message: "The enter is not valid E-mail!"
+                  message: "Please enter valid E-mail!"
                 },
                 {
                   required: true,
@@ -84,7 +84,7 @@ function Register(props) {
               rules: [
                 {
                   required: true,
-                  message: "Please enter your password!"
+                  message: "Please enter a password!"
                 },
                 {
                   validator: validateToNextPassword
@@ -97,7 +97,7 @@ function Register(props) {
               rules: [
                 {
                   required: true,
-                  message: "Please confirm your password!"
+                  message: "Please confirm the password!"
                 },
                 {
                   validator: compareToFirstPassword
