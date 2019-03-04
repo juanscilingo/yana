@@ -1,5 +1,11 @@
 import React, { Suspense, lazy } from "react";
-import { Route, Switch, Router, Redirect } from "react-router";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import Layout from "../views/Layout";
 
 const Home = lazy(() => import("../views/Home"));
 const Profile = lazy(() => import("../views/Profile"));
@@ -12,7 +18,9 @@ function PrivateRoute({ component: Component, authenticated, ...rest }) {
       {...rest}
       render={props =>
         authenticated === true ? (
-          <Component {...props} />
+          <Layout>
+            <Component {...props} />
+          </Layout>
         ) : (
           <Redirect
             to={{ pathname: "/login", state: { from: props.location } }}
@@ -23,14 +31,27 @@ function PrivateRoute({ component: Component, authenticated, ...rest }) {
   );
 }
 
-export default function Routes() {
+function PublicRoute({ component: Component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props => (
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      )}
+    />
+  );
+}
+
+export default function() {
   return (
     <Router>
-      <Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <PublicRoute exact path="/" component={Home} />
+          <PublicRoute path="/login" component={Login} />
+          <PublicRoute path="/register" component={Register} />
           <PrivateRoute
             path="/profile"
             authenticated={true}

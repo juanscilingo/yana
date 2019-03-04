@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import Router from "./router";
+import "antd/dist/antd.css";
 
-class App extends Component {
-  render() {
-    return <div className="App" />;
-  }
+export default function() {
+  return (
+    <div className="App">
+      <Router />
+    </div>
+  );
 }
-
-export default App;

@@ -1,0 +1,19 @@
+.navbar {
+  padding: 0px !important;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.collapseTrigger {
+  font-size: 18px;
+  line-height: 64px !important;
+  padding: 0px 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  float: left;
+  color: white;
+}
+.collapseTrigger:hover {
+  color: #1890ff;
+}

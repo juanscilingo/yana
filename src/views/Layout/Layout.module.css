@@ -1,0 +1,15 @@
+.layoutContainer {
+  height: 100vh;
+}
+
+.contentWrapper {
+  margin-top: 64px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.content {
+  background: #fff;
+  padding: 24px;
+  min-height: unset !important;
+}
