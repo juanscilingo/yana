@@ -32,16 +32,7 @@ function PrivateRoute({ component: Component, authenticated, ...rest }) {
 }
 
 function PublicRoute({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props => (
-        <Layout>
-          <Component {...props} />
-        </Layout>
-      )}
-    />
-  );
+  return <Route {...rest} render={props => <Component {...props} />} />;
 }
 
 export default function() {
@@ -49,12 +40,12 @@ export default function() {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <PublicRoute exact path="/" component={Home} />
           <PublicRoute path="/login" component={Login} />
           <PublicRoute path="/register" component={Register} />
+          <PrivateRoute exact path="/" authenticated={false} component={Home} />
           <PrivateRoute
             path="/profile"
-            authenticated={true}
+            authenticated={false}
             component={Profile}
           />
         </Switch>
