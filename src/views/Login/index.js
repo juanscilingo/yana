@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Input, Icon, Checkbox, Button } from "antd";
+import { Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import logo from "../../assets/logo.png";
 
@@ -61,7 +62,7 @@ function Login(props) {
               Log in
             </Button>
             <span>
-              Or <a href="/">register now!</a>
+              Or <Link to="/register">register now!</Link>
             </span>
           </FormItem>
         </Form>
