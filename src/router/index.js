@@ -11,6 +11,7 @@ const Home = lazy(() => import("../views/Home"));
 const Profile = lazy(() => import("../views/Profile"));
 const Login = lazy(() => import("../views/Login"));
 const Register = lazy(() => import("../views/Register"));
+const NotFound = lazy(() => import("../views/NotFound"));
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -48,6 +49,7 @@ export default function() {
             authenticated={false}
             component={Profile}
           />
+          <PublicRoute component={NotFound} />
         </Switch>
       </Suspense>
     </Router>
