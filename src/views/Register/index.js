@@ -50,11 +50,11 @@ function Register(props) {
               rules: [
                 {
                   type: "email",
-                  message: "The input is not valid E-mail!"
+                  message: "The enter is not valid E-mail!"
                 },
                 {
                   required: true,
-                  message: "Please input your E-mail!"
+                  message: "Please enter your E-mail!"
                 }
               ]
             })(<Input />)}
@@ -64,7 +64,7 @@ function Register(props) {
               rules: [
                 {
                   required: true,
-                  message: "Please input your first name!"
+                  message: "Please enter your first name!"
                 }
               ]
             })(<Input />)}
@@ -74,7 +74,7 @@ function Register(props) {
               rules: [
                 {
                   required: true,
-                  message: "Please input your last name!"
+                  message: "Please enter your last name!"
                 }
               ]
             })(<Input />)}
@@ -84,7 +84,7 @@ function Register(props) {
               rules: [
                 {
                   required: true,
-                  message: "Please input your password!"
+                  message: "Please enter your password!"
                 },
                 {
                   validator: validateToNextPassword
