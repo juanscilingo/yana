@@ -29,7 +29,8 @@ export default function() {
     speed: 2,
     accelMod: 1,
     mouseX: window.innerWidth / 2,
-    audio: new Audio()
+    audio: new Audio(),
+    playing: false
   });
 
   // Get moving!
@@ -70,6 +71,20 @@ export default function() {
     });
   };
 
+  useEventListener(
+    "play",
+    () => {
+      setState({ ...state, playing: true });
+    },
+    state.audio
+  );
+  useEventListener(
+    "ended",
+    () => {
+      setState({ ...state, playing: false });
+    },
+    state.audio
+  );
   useEventListener("mousemove", handleMouseMove);
   useInterval(movement, 1);
 
@@ -112,9 +127,7 @@ export default function() {
           <div className="stripe one" />
           <div className="stripe two" />
           <div className={"eyes " + (toTheRight ? "right" : "")}>
-            <div
-              className={"eye one " + (!state.audio.paused ? "titillate" : "")}
-            />
+            <div className={"eye one " + (state.playing ? "titillate" : "")} />
             <div className="eye two" />
           </div>
           <div className={"stripe detail " + (toTheRight ? "right" : "")}>
