@@ -1,22 +1,19 @@
 import React from "react";
-import { Form, Input, Icon, Checkbox, Button } from "antd";
-import { Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import logo from "../../assets/logo.png";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
-const { Item: FormItem } = Form;
-
-function Login(props) {
-  const handleSubmit = e => {
-    e.preventDefault();
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log("Received values of form: ", values);
-      }
-    });
+export default () => {
+  const onSubmit = (data, actions) => {
+    console.log(data);
+    setTimeout(() => {
+      actions.setSubmitting(false);
+      actions.setStatus({
+        error: true,
+        errorMessage: "The specified credentials are invalid"
+      });
+    }, 2000);
   };
-
-  const { getFieldDecorator } = props.form;
 
   return (
     <div className={styles.container}>
@@ -24,51 +21,8 @@ function Login(props) {
         <div className={styles.logo}>
           <img src={logo} alt="logo" width={200} />
         </div>
-        <Form onSubmit={handleSubmit}>
-          <FormItem>
-            {getFieldDecorator("email", {
-              rules: [
-                { type: "email", message: "Please enter a valid email!" },
-                { required: true, message: "Please enter your email!" }
-              ]
-            })(<Input prefix={<Icon type="user" />} placeholder="Email" />)}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator("password", {
-              rules: [
-                { required: true, message: "Please enter your Password!" }
-              ]
-            })(
-              <Input
-                prefix={<Icon type="lock" />}
-                type="password"
-                placeholder="Password"
-              />
-            )}
-          </FormItem>
-          <FormItem className={styles.rememberMeContainer}>
-            {getFieldDecorator("rememberMe", {
-              valuePropName: "checked",
-              initialValue: true
-            })(<Checkbox>Remember me</Checkbox>)}
-            <a className={styles.forgotPassword} href="/">
-              Forgot password
-            </a>
-            <Button
-              type="primary"
-              htmlType="submit"
-              className={styles.loginButton}
-            >
-              Log in
-            </Button>
-            <span>
-              Or <Link to="/register">register now!</Link>
-            </span>
-          </FormItem>
-        </Form>
+        <LoginForm onSubmit={onSubmit} />
       </div>
     </div>
   );
-}
-
-export default Form.create()(Login);
+};
