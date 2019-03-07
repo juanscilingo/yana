@@ -1,18 +1,22 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import styles from "./Login.module.css";
 import logo from "../../assets/logo.png";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import authApi from "../../api/auth";
 
-export default () => {
-  const onSubmit = (data, actions) => {
-    console.log(data);
-    setTimeout(() => {
-      actions.setSubmitting(false);
-      actions.setStatus({
-        error: true,
-        errorMessage: "The specified credentials are invalid"
+const Login = ({ history }) => {
+  const onSubmit = (credentials, actions) => {
+    authApi
+      .login(credentials)
+      .then(result => history.push("/profile"))
+      .catch(result => {
+        actions.setSubmitting(false);
+        actions.setStatus({
+          error: true,
+          errorMessage: result.errorMessage
+        });
       });
-    }, 2000);
   };
 
   return (
@@ -26,3 +30,5 @@ export default () => {
     </div>
   );
 };
+
+export default withRouter(Login);
