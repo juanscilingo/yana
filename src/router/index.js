@@ -43,10 +43,10 @@ export default function() {
         <Switch>
           <PublicRoute path="/login" component={Login} />
           <PublicRoute path="/register" component={Register} />
-          <PrivateRoute exact path="/" authenticated={false} component={Home} />
+          <PrivateRoute exact path="/" authenticated={true} component={Home} />
           <PrivateRoute
             path="/profile"
-            authenticated={false}
+            authenticated={true}
             component={Profile}
           />
           <PublicRoute component={NotFound} />
