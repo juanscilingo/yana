@@ -89,7 +89,6 @@ export default props => {
             <Button
               type="primary"
               htmlType="submit"
-              disabled={isSubmitting}
               loading={isSubmitting}
               className={styles.loginButton}
             >
