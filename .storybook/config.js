@@ -14,6 +14,7 @@ function loadStories() {
   require("../src/stories/Navbar");
   require("../src/stories/Sidebar");
   require("../src/stories/LoginForm");
+  require("../src/stories/NotFound");
 }
 
 configure(loadStories, module);
