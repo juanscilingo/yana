@@ -14,20 +14,13 @@ const schema = Yup.object().shape({
 });
 
 export default props => {
-  const form = useRef(null);
-
   const onSubmit = (data, actions) => {
     actions.setStatus(null); // We clear any status from a previous submission
     props.onSubmit(data, actions);
   };
 
-  const resetFormStatus = () => {
-    form.current.setStatus(null);
-  };
-
   return (
     <Formik
-      ref={form}
       initialValues={{ email: "", password: "", rememberMe: false }}
       onSubmit={onSubmit}
       validationSchema={schema}
@@ -38,7 +31,8 @@ export default props => {
         handleBlur,
         handleChange,
         handleSubmit,
-        isSubmitting
+        isSubmitting,
+        setStatus
       }) => (
         <Form onSubmit={handleSubmit}>
           {status && status.error && (
@@ -48,7 +42,7 @@ export default props => {
                 type="error"
                 showIcon
                 closable
-                afterClose={resetFormStatus}
+                afterClose={() => setStatus(null)}
               />
             </Form.Item>
           )}
