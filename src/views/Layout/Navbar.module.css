@@ -2,7 +2,6 @@
   padding: 0px !important;
   position: fixed;
   z-index: 1;
-  width: 100%;
 }
 
 .collapseTrigger {
@@ -16,4 +15,15 @@
 }
 .collapseTrigger:hover {
   color: #1890ff;
+}
+.userContainer {
+  float: right;
+  margin-right: 10px;
+}
+.userIcon i {
+  margin-right: 0px !important;
+}
+.email {
+  color: white;
+  margin-left: 10px;
 }

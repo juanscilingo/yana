@@ -1,13 +1,9 @@
-const authApi = {
-  login: async (email, password) => {
-    const mockedRequest = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        reject({ errorMessage: "The specified credentials are invalid" });
-      }, 2000);
-    });
+import axios from "./axios";
 
-    return await mockedRequest;
-  }
+const authApi = {
+  login: credentials =>
+    axios.post("/auth/signin", credentials).then(response => response.data),
+  signout: () => axios.post("/auth/signout")
 };
 
 export default authApi;

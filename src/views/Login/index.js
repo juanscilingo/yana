@@ -3,14 +3,15 @@ import { withRouter } from "react-router-dom";
 import styles from "./Login.module.css";
 import logo from "../../assets/logo.png";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import authApi from "../../api/auth";
 import background from "../../assets/background-blue.png";
+import { signin } from "../../redux/actions/authActions";
+import { connect } from "react-redux";
 
-const Login = ({ history }) => {
+const Login = props => {
   const onSubmit = (credentials, actions) => {
-    authApi
-      .login(credentials)
-      .then(result => history.push("/profile"))
+    props
+      .signin(credentials)
+      .then(() => props.history.push("/profile"))
       .catch(result => {
         actions.setSubmitting(false);
         actions.setStatus({
@@ -35,4 +36,9 @@ const Login = ({ history }) => {
   );
 };
 
-export default withRouter(Login);
+const wrappedLogin = withRouter(Login);
+
+export default connect(
+  null,
+  { signin }
+)(wrappedLogin);
