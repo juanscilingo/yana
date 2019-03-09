@@ -4,6 +4,7 @@ import styles from "./Login.module.css";
 import logo from "../../assets/logo.png";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import authApi from "../../api/auth";
+import background from "../../assets/background-blue.png";
 
 const Login = ({ history }) => {
   const onSubmit = (credentials, actions) => {
@@ -20,7 +21,10 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ backgroundImage: `url(${background})` }}
+    >
       <div className={styles.content}>
         <div className={styles.logo}>
           <img src={logo} alt="logo" width={200} />

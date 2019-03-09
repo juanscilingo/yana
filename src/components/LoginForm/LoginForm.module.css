@@ -3,7 +3,8 @@
 }
 .forgotPassword {
   float: right;
+  margin-left: 50px;
 }
-.rememberMeContainer {
+.actions {
   margin-bottom: 0px;
 }

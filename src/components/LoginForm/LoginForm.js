@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Form, Input, Icon, Checkbox, Button, Alert } from "antd";
+import React from "react";
+import { Form, Input, Icon, Button, Alert } from "antd";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
@@ -9,8 +9,7 @@ const schema = Yup.object().shape({
   email: Yup.string("Email")
     .email("Please enter a valid email address")
     .required("Please enter your email address"),
-  password: Yup.string().required("Please enter your password"),
-  rememberMe: Yup.bool()
+  password: Yup.string().required("Please enter your password")
 });
 
 export default props => {
@@ -21,7 +20,7 @@ export default props => {
 
   return (
     <Formik
-      initialValues={{ email: "", password: "", rememberMe: false }}
+      initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
       validationSchema={schema}
       render={({
@@ -73,13 +72,7 @@ export default props => {
               onBlur={handleBlur}
             />
           </Form.Item>
-          <Form.Item className={styles.rememberMeContainer}>
-            <Checkbox name="rememberMe" onChange={handleChange}>
-              Remember me
-            </Checkbox>
-            <a className={styles.forgotPassword} href="/">
-              Forgot password
-            </a>
+          <Form.Item className={styles.actions}>
             <Button
               type="primary"
               htmlType="submit"
@@ -91,6 +84,9 @@ export default props => {
             <span>
               Or <Link to="/register">register now!</Link>
             </span>
+            <a className={styles.forgotPassword} href="/">
+              Forgot password
+            </a>
           </Form.Item>
         </Form>
       )}

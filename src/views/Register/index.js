@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Input, Checkbox, Button } from "antd";
 import styles from "./Register.module.css";
 import { Link } from "react-router-dom";
+import background from "../../assets/background-blue.png";
 
 const { Item: FormItem } = Form;
 
@@ -42,7 +43,10 @@ function Register(props) {
   const { getFieldDecorator } = props.form;
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ backgroundImage: `url(${background})` }}
+    >
       <div className={styles.content}>
         <Form onSubmit={handleSubmit}>
           <Form.Item label="E-mail" className={styles.formItem}>
