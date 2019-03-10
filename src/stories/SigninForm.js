@@ -2,9 +2,9 @@ import React from "react";
 import { MemoryRouter } from "react-router-dom";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import LoginForm from "../components/LoginForm/LoginForm";
+import SigninForm from "../components/SigninForm";
 
-storiesOf("LoginForm", module)
+storiesOf("SigninForm", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
@@ -17,7 +17,7 @@ storiesOf("LoginForm", module)
         margin: 20
       }}
     >
-      <LoginForm
+      <SigninForm
         onSubmit={(data, actions) => {
           action("Submitted")(data, actions);
           setTimeout(() => {
@@ -36,7 +36,7 @@ storiesOf("LoginForm", module)
         margin: 20
       }}
     >
-      <LoginForm
+      <SigninForm
         onSubmit={(data, actions) => {
           action("Submitted")(data, actions);
           setTimeout(() => {

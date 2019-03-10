@@ -3,7 +3,7 @@ import { Form, Input, Icon, Button, Alert } from "antd";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import styles from "./LoginForm.module.css";
+import styles from "./SigninForm.module.css";
 
 const schema = Yup.object().shape({
   email: Yup.string("Email")
@@ -77,12 +77,12 @@ export default props => {
               type="primary"
               htmlType="submit"
               loading={isSubmitting}
-              className={styles.loginButton}
+              className={styles.signinButton}
             >
-              Log in
+              Sign in
             </Button>
             <span>
-              Or <Link to="/register">register now!</Link>
+              Or <Link to="/signup">sign up now!</Link>
             </span>
             <a className={styles.forgotPassword} href="/">
               Forgot password

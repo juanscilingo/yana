@@ -9,8 +9,8 @@ import Layout from "../views/Layout";
 
 const Home = lazy(() => import("../views/Home"));
 const Profile = lazy(() => import("../views/Profile"));
-const Login = lazy(() => import("../views/Login"));
-const Register = lazy(() => import("../views/Register"));
+const Signin = lazy(() => import("../views/Signin"));
+const Signup = lazy(() => import("../views/Signup"));
 const NotFound = lazy(() => import("../views/NotFound"));
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
@@ -24,7 +24,7 @@ function PrivateRoute({ component: Component, authenticated, ...rest }) {
           </Layout>
         ) : (
           <Redirect
-            to={{ pathname: "/login", state: { from: props.location } }}
+            to={{ pathname: "/signin", state: { from: props.location } }}
           />
         )
       }
@@ -41,8 +41,8 @@ export default function() {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <PublicRoute path="/login" component={Login} />
-          <PublicRoute path="/register" component={Register} />
+          <PublicRoute path="/signin" component={Signin} />
+          <PublicRoute path="/signup" component={Signup} />
           <PrivateRoute exact path="/" authenticated={true} component={Home} />
           <PrivateRoute
             path="/profile"

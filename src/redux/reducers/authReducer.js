@@ -12,6 +12,10 @@ const authReducer = createReducer(initialState, {
     isAuthenticated: true,
     ...action.payload
   }),
+  SIGNUP_SUCCESS: (state, action) => ({
+    isAuthenticated: true,
+    ...action.payload
+  }),
   SIGNOUT_SUCCESS: (state, action) => initialState,
   REHIDRATE_AUTH: (state, action) => action.payload
 });

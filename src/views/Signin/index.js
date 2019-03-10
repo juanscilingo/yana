@@ -1,13 +1,13 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import styles from "./Login.module.css";
+import styles from "./Signin.module.css";
 import logo from "../../assets/logo.png";
-import LoginForm from "../../components/LoginForm/LoginForm";
+import SigninForm from "../../components/SigninForm";
 import background from "../../assets/background-blue.png";
 import { signin } from "../../redux/actions/authActions";
 import { connect } from "react-redux";
 
-const Login = props => {
+const Signin = props => {
   const onSubmit = (credentials, actions) => {
     props
       .signin(credentials)
@@ -30,15 +30,15 @@ const Login = props => {
         <div className={styles.logo}>
           <img src={logo} alt="logo" width={200} />
         </div>
-        <LoginForm onSubmit={onSubmit} />
+        <SigninForm onSubmit={onSubmit} />
       </div>
     </div>
   );
 };
 
-const wrappedLogin = withRouter(Login);
+const wrappedSignin = withRouter(Signin);
 
 export default connect(
   null,
   { signin }
-)(wrappedLogin);
+)(wrappedSignin);

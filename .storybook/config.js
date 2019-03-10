@@ -13,7 +13,8 @@ addParameters({
 function loadStories() {
   require("../src/stories/Navbar");
   require("../src/stories/Sidebar");
-  require("../src/stories/LoginForm");
+  require("../src/stories/SigninForm");
+  require("../src/stories/SignupForm");
   require("../src/stories/NotFound");
 }
 

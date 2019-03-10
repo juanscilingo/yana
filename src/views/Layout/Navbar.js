@@ -9,7 +9,7 @@ const { Header } = Layout;
 
 const Navbar = props => {
   const signoutUser = () => {
-    props.signout().then(() => props.history.push("/login"));
+    props.signout().then(() => props.history.push("/signin"));
   };
   return (
     <Header

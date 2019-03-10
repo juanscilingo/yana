@@ -35,10 +35,11 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "@storybook/addon-actions": "^5.0.0",
-    "@storybook/addon-links": "^5.0.0",
-    "@storybook/addons": "^5.0.0",
-    "@storybook/react": "^5.0.0",
+    "@storybook/addon-actions": "^5.0.1",
+    "@storybook/addon-links": "^5.0.1",
+    "@storybook/addons": "^5.0.1",
+    "@storybook/react": "^5.0.1",
+    "@storybook/theming": "^5.0.1",
     "babel-loader": "^8.0.5"
   }
 }
