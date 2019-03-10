@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 
 const { Header } = Layout;
 
-const Navbar = props => {
+export const Navbar = props => {
   const signoutUser = () => {
     props.signout().then(() => props.history.push("/signin"));
   };
