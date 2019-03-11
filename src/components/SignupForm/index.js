@@ -30,7 +30,8 @@ export default props => {
         name: "",
         password: "",
         confirmPassword: "",
-        agreement: false
+        agreement: false,
+        avatar: null
       }}
       onSubmit={onSubmit}
       validationSchema={schema}

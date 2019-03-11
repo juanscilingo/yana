@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styles from "./Signup.module.css";
 import background from "../../assets/background-blue.png";
 import SignupForm from "../../components/SignupForm";
-import { signup } from "../../redux/actions/authActions";
+import { signup } from "../../redux/actions/auth";
 
 function Signup(props) {
   const onSubmit = (data, actions) => {

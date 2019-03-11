@@ -2,7 +2,7 @@ import React from "react";
 import { Layout, Menu, Icon, Avatar } from "antd";
 import styles from "./Navbar.module.css";
 import { connect } from "react-redux";
-import { signout } from "../../redux/actions/authActions";
+import { signout } from "../../redux/actions/auth";
 import { withRouter } from "react-router-dom";
 
 const { Header } = Layout;

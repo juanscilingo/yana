@@ -4,7 +4,7 @@ import styles from "./Signin.module.css";
 import logo from "../../assets/logo.png";
 import SigninForm from "../../components/SigninForm";
 import background from "../../assets/background-blue.png";
-import { signin } from "../../redux/actions/authActions";
+import { signin } from "../../redux/actions/auth";
 import { connect } from "react-redux";
 
 const Signin = props => {
