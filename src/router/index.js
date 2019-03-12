@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 import { connect } from "react-redux";
 import Layout from "../views/Layout";
+import Notes from "../views/Notes";
 
-const Home = lazy(() => import("../views/Home"));
+// const Home = lazy(() => import("../views/Home"));
 const Profile = lazy(() => import("../views/Profile"));
 const Signin = lazy(() => import("../views/Signin"));
 const Signup = lazy(() => import("../views/Signup"));
@@ -69,10 +70,10 @@ function AppRouter(props) {
             component={Signup}
           />
           <PrivateRoute
-            exact
             path="/"
+            exact
             authenticated={isAuthenticated}
-            component={Home}
+            component={Notes}
           />
           <PrivateRoute
             path="/profile"

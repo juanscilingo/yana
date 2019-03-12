@@ -16,6 +16,7 @@ function loadStories() {
   require("../src/stories/SigninForm");
   require("../src/stories/SignupForm");
   require("../src/stories/NotFound");
+  require("../src/stories/NotebookCreator");
 }
 
 configure(loadStories, module);
