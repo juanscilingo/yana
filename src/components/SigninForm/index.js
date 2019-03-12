@@ -53,6 +53,7 @@ export default props => {
               prefix={<Icon type="user" />}
               name="email"
               placeholder="Email"
+              autoComplete="username"
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -68,6 +69,7 @@ export default props => {
               name="password"
               type="password"
               placeholder="Password"
+              autoComplete="current-password"
               onChange={handleChange}
               onBlur={handleBlur}
             />

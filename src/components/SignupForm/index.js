@@ -65,6 +65,7 @@ export default props => {
               prefix={<Icon type="user" />}
               name="email"
               placeholder="Email"
+              autoComplete="username"
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -77,6 +78,7 @@ export default props => {
               prefix={<Icon type="user" />}
               name="name"
               placeholder="Name"
+              autoComplete="given-name"
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -92,6 +94,7 @@ export default props => {
               name="password"
               type="password"
               placeholder="Password"
+              autoComplete="new-password"
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -111,6 +114,7 @@ export default props => {
               name="confirmPassword"
               type="password"
               placeholder="Confirm Password"
+              autoComplete="new-password"
               onChange={handleChange}
               onBlur={handleBlur}
             />
