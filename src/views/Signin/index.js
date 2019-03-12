@@ -11,7 +11,7 @@ const Signin = props => {
   const onSubmit = (credentials, actions) => {
     props
       .signin(credentials)
-      .then(() => props.history.push("/profile"))
+      .then(() => props.history.push("/"))
       .catch(result => {
         actions.setSubmitting(false);
         actions.setStatus({

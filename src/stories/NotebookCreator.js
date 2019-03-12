@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MemoryRouter } from "react-router-dom";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import NotebookCreator from "../components/NotebookCreator/NotebookCreator";
+import NotebookCreator from "../components/NotebookCreator";
 import { Button } from "antd";
 import NotebookCreatorModal from "../components/NotebookCreator/NotebookCreatorModal";
 

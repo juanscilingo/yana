@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Modal } from "antd";
-import NotebookCreator from "./NotebookCreator";
+import NotebookCreator from ".";
 
 function NotebookCreatorModal(props) {
   const { visible, onOk, onCancel } = props;

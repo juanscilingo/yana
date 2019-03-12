@@ -3,6 +3,7 @@ import { Form, Input, Button, Alert } from "antd";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import styles from "./NotebookCreator.module.css";
+import ColorPicker from "../ColorPicker";
 
 const schema = Yup.object().shape({
   name: Yup.string("Name")
@@ -27,7 +28,7 @@ export default props => {
       initialValues={{
         name: "",
         description: "",
-        color: "#017dc3",
+        color: "#F44336",
         icon: "book"
       }}
       ref={props.formRef}
@@ -42,7 +43,8 @@ export default props => {
         handleChange,
         handleSubmit,
         isSubmitting,
-        setStatus
+        setStatus,
+        setFieldValue
       }) => (
         <Form onSubmit={handleSubmit}>
           {status && status.error && (
@@ -89,19 +91,6 @@ export default props => {
             />
           </Form.Item>
           <Form.Item
-            validateStatus={errors.color && touched.color ? "error" : null}
-            help={errors.color && touched.color ? errors.color : null}
-          >
-            <Input
-              name="color"
-              placeholder="Color"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              maxLength={7}
-              value={values.color}
-            />
-          </Form.Item>
-          <Form.Item
             validateStatus={errors.icon && touched.icon ? "error" : null}
             help={errors.icon && touched.icon ? errors.icon : null}
           >
@@ -112,6 +101,23 @@ export default props => {
               onBlur={handleBlur}
               value={values.icon}
             />
+          </Form.Item>
+          <Form.Item
+            validateStatus={errors.color && touched.color ? "error" : null}
+            help={errors.color && touched.color ? errors.color : null}
+          >
+            <ColorPicker
+              value={values.color}
+              onChange={color => setFieldValue("color", color)}
+            />
+            {/* <Input
+              name="color"
+              placeholder="Color"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              maxLength={7}
+              value={values.color}
+            /> */}
           </Form.Item>
           <Form.Item className={styles.actions}>
             <Button
